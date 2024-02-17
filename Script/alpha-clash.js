@@ -1,7 +1,7 @@
 function getARandomAlphabet() {
     const alphabetString = "abcdefghijklmnopqrstuvwxyz";
-    const alphabets = alphabetString.split('');
-    return alphabets[Math.floor(Math.random() * alphabets.length)];
+    const alphabetArray = alphabetString.split('');
+    return alphabetArray[Math.floor(Math.random() * alphabetArray.length)];
 }
 
 function continueGame() {
