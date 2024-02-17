@@ -6,7 +6,11 @@ function getARandomAlphabet() {
 
 function continueGame() {
     const alphabet = getARandomAlphabet();
-    return alphabet;
+    const currentAlphabetGenerate = document.getElementById("current-alphabet");
+    currentAlphabetGenerate.innerText = alphabet.toUpperCase();
+
+    // Set background color
+    setBackgroundColorInKeyboard(alphabet);
 }
 
 function play() {
@@ -15,5 +19,5 @@ function play() {
 
     // // Show the game screen by removing the hidden class from the classList
     setElementById('play-ground');
-    console.log(continueGame());
+    continueGame();
 }
