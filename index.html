@@ -56,16 +56,16 @@
     <main class="text-center">
 
         <!-- Home Page Section -->
-        <section class="home text-white min-h-screen flex flex-col justify-center hidden">
+        <section id="home-screen" class="text-white min-h-screen flex flex-col justify-center">
             <div class="flex flex-col gap-12 items-center">
                 <h1 class="text-7xl anton-regular">ALPHABET CLASH</h1>
                 <p class="poppins-medium">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
-                <button class="btn bg-white text-black w-32">Play Now</button>
+                <button onclick="play()" class="btn bg-white text-black text-2xl">Play Now</button>
             </div>
         </section>
 
         <!-- Playground Section -->
-        <section class="play-grpund flex flex-col justify-center items-center gap-20 pt-20 hidden">
+        <section id="play-ground" class="flex flex-col justify-center items-center gap-20 pt-20 hidden">
             <!-- Screen -->
             <div
                 class="artboard artboard-horizontal phone-6 border-[20px] rounded-xl border-[#010313CC] bg-[#FFFFFFB3]">
@@ -159,6 +159,7 @@
             </div>
         </section>
     </main>
+    <script src="Script/alpha-clash.js"></script>
 </body>
 
 </html>
