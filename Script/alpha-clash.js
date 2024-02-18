@@ -13,7 +13,9 @@ function continueGame() {
     setBackgroundColorInKeyboard(alphabet);
 }
 
-function scorePage(current) {
+function scorePage(current, finalScore) {
+    let score = document.getElementById('final-score');
+    score.innerText = finalScore;
     removeBackgroundColorInKeyboard(current);
     hideElementById('home-screen');
     hideElementById('play-ground');
@@ -38,10 +40,10 @@ function playAgain() {
 function buttonPress(event) {
     const playerPressed = event.key;
 
+    let currentScore = document.getElementById('current-score');
     const currentAlphabetGenerate = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetGenerate.innerText;
     if (playerPressed.toLowerCase() === currentAlphabet.toLowerCase()) {
-        let currentScore = document.getElementById('current-score');
         let point = parseInt(currentScore.innerText);
         let newScore = point + 1;
         currentScore.innerText = newScore;
@@ -53,12 +55,12 @@ function buttonPress(event) {
         let lifeTime = parseInt(currentLife.innerText);
         let newLife = lifeTime - 1;
         currentLife.innerText = newLife;
-        if (newLife == -1) {
-            play();
-        }
         const current = currentAlphabet.toLowerCase();
         removeBackgroundColorInKeyboard(playerPressed);
-        scorePage(current);
+        if (newLife === 0) {
+            currentLife.innerText = 0;
+            scorePage(current, parseInt(currentScore.innerText));
+        }
     }
 }
 
