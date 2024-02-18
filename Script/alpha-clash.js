@@ -13,6 +13,13 @@ function continueGame() {
     setBackgroundColorInKeyboard(alphabet);
 }
 
+function scorePage(current) {
+    removeBackgroundColorInKeyboard(current);
+    hideElementById('home-screen');
+    hideElementById('play-ground');
+    setElementById('score-page');
+}
+
 function play() {
     // // Hide the home screen by adding the hidden class to the classList
     hideElementById('home-screen');
@@ -21,3 +28,38 @@ function play() {
     setElementById('play-ground');
     continueGame();
 }
+
+function playAgain() {
+    hideElementById("score-page");
+    hideElementById("play-ground");
+    setElementById("home-screen");
+}
+
+function buttonPress(event) {
+    const playerPressed = event.key;
+
+    const currentAlphabetGenerate = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetGenerate.innerText;
+    if (playerPressed.toLowerCase() === currentAlphabet.toLowerCase()) {
+        let currentScore = document.getElementById('current-score');
+        let point = parseInt(currentScore.innerText);
+        let newScore = point + 1;
+        currentScore.innerText = newScore;
+        removeBackgroundColorInKeyboard(playerPressed);
+        continueGame();
+    }
+    else {
+        const currentLife = document.getElementById('current-life');
+        let lifeTime = parseInt(currentLife.innerText);
+        let newLife = lifeTime - 1;
+        currentLife.innerText = newLife;
+        if (newLife == -1) {
+            play();
+        }
+        const current = currentAlphabet.toLowerCase();
+        removeBackgroundColorInKeyboard(playerPressed);
+        scorePage(current);
+    }
+}
+
+document.addEventListener('keyup', buttonPress)
