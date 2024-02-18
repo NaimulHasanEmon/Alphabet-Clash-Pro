@@ -32,9 +32,9 @@ function play() {
 }
 
 function playAgain() {
+    hideElementById("home-screen");
     hideElementById("score-page");
-    hideElementById("play-ground");
-    setElementById("home-screen");
+    setElementById("play-ground");
 }
 
 function buttonPress(event) {
