@@ -34,6 +34,12 @@ function play() {
 function playAgain() {
     hideElementById("home-screen");
     hideElementById("score-page");
+    const lifeTime = document.getElementById('current-life');
+    lifeTime.innerText = 5;
+
+    const score = document.getElementById('current-score');
+    score.innerText = 0;
+    
     setElementById("play-ground");
 }
 
